@@ -9,10 +9,10 @@ plan cog::app_deploy (
     run_command('/opt/puppetlabs/bin/puppet plugin download', "pcp://${a}")
   }
 
-  run_task('app_deploy::build', "pcp://${database}", version => '2.4')
+  run_task('cog::build', "pcp://${database}", version => '2.4')
 
   $app_servers.split(',').each |$b| {
-    run_task('app_deploy::deploy', "pcp://${b}", message => 'hello world', version => '2.4' )
+    run_task('cog::deploy', "pcp://${b}", message => 'hello world', version => '2.4' )
   }
 
 }
