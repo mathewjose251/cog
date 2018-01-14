@@ -12,11 +12,15 @@ file { '/tmp/foo.txt':
   content  => "${file_contents}",
 }
 
-file { '/tmp/bar.txt':
-  ensure => file,
-  source => 'puppet:///modules/cog/bar.txt',
-}
-
+# for the below to work, you need to add
+# [user]
+# certname = $certname
+# in the targets puppet.conf file
+# also note the hardcoded servername, which could be a parameter
+#file { '/tmp/bar.txt':
+#  ensure => file,
+#  source => 'puppet://$puppetservername/modules/cog/bar.txt',
+#}
 
 package {'ntp':
   ensure  => present,
