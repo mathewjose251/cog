@@ -12,6 +12,12 @@ file { '/tmp/foo.txt':
   content  => "${file_contents}",
 }
 
+file { '/tmp/bar.txt':
+  ensure => file,
+  source => 'puppet:///modules/cog/bar.txt',
+}
+
+
 package {'ntp':
   ensure  => present,
   require => File['/tmp/foo.txt']
