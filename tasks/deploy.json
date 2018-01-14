@@ -1,0 +1,13 @@
+{
+   "description": "This is an example deploy tasks as puppet apply",
+   "parameters": {
+     "message": {
+       "description": "Message to put in the file",
+       "type": "String[1]"
+     },
+     "version": {
+       "description": "Version release",
+       "type": "String[1]"
+     }
+   }
+}

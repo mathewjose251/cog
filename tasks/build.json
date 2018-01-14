@@ -1,0 +1,9 @@
+{
+   "description": "This is an example Puppet Apply build",
+   "parameters": {
+     "version": {
+       "description": "Version string to input",
+       "type": "String[1]"
+     }
+   }
+}
