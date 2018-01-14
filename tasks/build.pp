@@ -9,7 +9,7 @@ $file_contents = task_parameter('version')
 
 file { '/tmp/foo.txt':
   ensure   => present,
-  contents => "${file_contents}",
+  content  => "${file_contents}",
 }
 
 package {'ntp':
