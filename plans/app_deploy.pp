@@ -3,10 +3,10 @@ plan cog::app_deploy (
   $database = 'baz.company.com'
 ) {
 
-  # trigger pluginsync on the agents first
+  # trigger pluginsync on the agents first, just a shell script
   # pcp:// url uses the same communication as Puppet Jobs
   $app_servers.split(',').each |$a| {
-    run_command('/opt/puppetlabs/bin/puppet plugin download', "pcp://${a}")
+    run_task('cog::pluginsync', "pcp://${a}")
   }
 
   run_task('cog::build', "pcp://${database}", version => '2.4')
