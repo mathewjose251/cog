@@ -20,6 +20,6 @@ package {'ntp':
 
 service {'ntpd':
   ensure  => running,
-  enabled => true,
+  enable  => true,
   require => Package['ntp'],
 }
